@@ -61,7 +61,7 @@ export default function Home() {
       </nav>
 
       <section 
-        ref={(el) => (sectionsRef.current[0] = el)} 
+        //ref={(el) => (sectionsRef.current[0] = el)} 
         className="min-h-screen flex items-center justify-center relative pt-16"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex flex-col lg:flex-row items-center gap-12">
@@ -95,7 +95,7 @@ export default function Home() {
      
       <section 
         id="features" 
-        ref={(el) => (sectionsRef.current[1] = el)} 
+        //ref={(el) => (sectionsRef.current[1] = el)} 
         className="py-32 relative"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,7 +143,7 @@ export default function Home() {
       
       <section 
         id="core-processes" 
-        ref={(el) => (sectionsRef.current[4] = el)} 
+        //ref={(el) => (sectionsRef.current[4] = el)} 
         className="py-32 relative bg-gradient-to-b from-[#0a1929] via-[#0f2942] to-[#0a1929]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +187,7 @@ export default function Home() {
 
       <section 
         id="download" 
-        ref={(el) => (sectionsRef.current[3] = el)} 
+        //ref={(el) => (sectionsRef.current[3] = el)} 
         className="py-32 relative"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
