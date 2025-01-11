@@ -46,9 +46,9 @@ export default function Home() {
               <Link href="#features" className="text-gray-300 hover:text-cyan-400 transition-colors">
                 Features
               </Link>
-              <Link href="#components" className="text-gray-300 hover:text-cyan-400 transition-colors">
+              {/* <Link href="#components" className="text-gray-300 hover:text-cyan-400 transition-colors">
                 Components
-              </Link>
+              </Link> */}
               <Link href="#core-processes" className="text-gray-300 hover:text-cyan-400 transition-colors">
                 Core Processes
               </Link>
