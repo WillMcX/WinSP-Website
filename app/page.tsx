@@ -3,11 +3,17 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
+
 
 export default function Home() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const [downloadUrl, setDownloadUrl] = useState("/WinSP.exe");
+  const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -35,28 +41,71 @@ export default function Home() {
      
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-blue-500/10 pointer-events-none"></div>
       
-      
+      {/* Navbar */}
       <nav className="sticky top-0 bg-[#0a1929]/80 backdrop-blur-md z-50 border-b border-cyan-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+            {/* Logo */}
             <Link href="/" className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
               WinSP
             </Link>
-            <div className="flex space-x-8">
-              <Link href="#features" className="text-gray-300 hover:text-cyan-400 transition-colors">
-                Features
-              </Link>
-              {/* <Link href="#components" className="text-gray-300 hover:text-cyan-400 transition-colors">
-                Components
-              </Link> */}
-              <Link href="#core-processes" className="text-gray-300 hover:text-cyan-400 transition-colors">
-                Core Processes
-              </Link>
-              <Link href="#download" className="text-gray-300 hover:text-cyan-400 transition-colors">
-                Download
-              </Link>
+            {/* Hamburger Button */}
+            <div className="md:hidden">
+              <button onClick={toggleNavbar} className="text-gray-300 focus:outline-none">
+                {isOpen ? '✖' : '☰'}
+              </button>
             </div>
+            {/* Desktop Menu */}
+            <ul className={`hidden md:flex md:space-x-8`}>
+              <li>
+                <Link href="#features" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="#core-processes" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  Core Processes
+                </Link>
+              </li>
+              <li>
+                <Link href="#download" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  Download
+                </Link>
+              </li>
+            </ul>
           </div>
+          {/* Mobile Menu */}
+          {isOpen && (
+            <ul className="md:hidden mt-4 flex flex-col space-y-4 bg-[#0a1929] p-4 rounded-lg shadow-lg">
+              <li>
+                <Link
+                  href="#features"
+                  className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#core-processes"
+                  className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Core Processes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#download"
+                  className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Download
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
       </nav>
 
